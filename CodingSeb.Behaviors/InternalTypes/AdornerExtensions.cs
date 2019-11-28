@@ -8,10 +8,7 @@ namespace CodingSeb.Behaviors
         public static void TryRemoveAdorners<T>(this UIElement elem) where T : Adorner
         {
             AdornerLayer adornerLayer = AdornerLayer.GetAdornerLayer(elem);
-            if (adornerLayer != null)
-            {
-                adornerLayer.RemoveAdorners<T>(elem);
-            }
+            adornerLayer?.RemoveAdorners<T>(elem);
         }
 
         public static void RemoveAdorners<T>(this AdornerLayer adr, UIElement elem)
@@ -32,7 +29,7 @@ namespace CodingSeb.Behaviors
             where T : Adorner
         {
             AdornerLayer adornerLayer = AdornerLayer.GetAdornerLayer(elem);
-            if (adornerLayer != null && !adornerLayer.ContainsAdorner<T>(elem))
+            if (adornerLayer?.ContainsAdorner<T>(elem) == false)
             {
                 adornerLayer.Add(adorner);
             }

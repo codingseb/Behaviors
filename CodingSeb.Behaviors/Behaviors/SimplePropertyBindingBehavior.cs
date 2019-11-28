@@ -1,14 +1,14 @@
-﻿using System;
+﻿using Microsoft.Xaml.Behaviors;
+using System;
 using System.Windows;
-using System.Windows.Interactivity;
 
 namespace CodingSeb.Behaviors
 {
     public class SimplePropertyBindingBehavior : Behavior<DependencyObject>
     {
-        private readonly ExpressionEvaluator expressionEvaluator = new ExpressionEvaluator();
+        private readonly ExpressionEvaluator.ExpressionEvaluator expressionEvaluator = new ExpressionEvaluator.ExpressionEvaluator();
         private string oldEventName = string.Empty;
-        private EventHandler<EventArgs> eventHandler;
+        private readonly EventHandler<EventArgs> eventHandler;
 
         public SimplePropertyBindingBehavior()
         {

@@ -7,37 +7,34 @@ namespace CodingSeb.Behaviors
 {
     public class WeakPropertyChangeNotifier : DependencyObject, IDisposable
     {
-        #region Member Variables
         private readonly WeakReference _propertySource;
-        #endregion // Member Variables
 
-        #region Constructor
         public WeakPropertyChangeNotifier(DependencyObject propertySource, string path)
             : this(propertySource, new PropertyPath(path))
         {
         }
+
         public WeakPropertyChangeNotifier(DependencyObject propertySource, DependencyProperty property)
             : this(propertySource, new PropertyPath(property))
         {
         }
+
         public WeakPropertyChangeNotifier(DependencyObject propertySource, PropertyPath property)
         {
-            if (null == propertySource)
-                throw new ArgumentNullException("propertySource");
+            if (propertySource == null)
+                throw new ArgumentNullException(nameof(propertySource));
             _propertySource = new WeakReference(propertySource);
 
             Binding binding = new Binding()
             {
-                Path = property ?? throw new ArgumentNullException("property"),
+                Path = property ?? throw new ArgumentNullException(nameof(property)),
                 Mode = BindingMode.OneWay,
                 Source = propertySource
             };
 
             BindingOperations.SetBinding(this, ValueProperty, binding);
         }
-        #endregion // Constructor
 
-        #region PropertySource
         public DependencyObject PropertySource
         {
             get
@@ -57,9 +54,7 @@ namespace CodingSeb.Behaviors
                 }
             }
         }
-        #endregion // PropertySource
 
-        #region Value
         /// <summary>
         /// Identifies the <see cref="Value"/> dependency property
         /// </summary>
@@ -84,17 +79,12 @@ namespace CodingSeb.Behaviors
             get => GetValue(ValueProperty);
             set => SetValue(ValueProperty, value);
         }
-        #endregion //Value
 
-        #region Events
         public event EventHandler ValueChanged;
-        #endregion // Events
 
-        #region IDisposable Members
         public void Dispose()
         {
             BindingOperations.ClearBinding(this, ValueProperty);
         }
-        #endregion
     }
 }

@@ -1,13 +1,13 @@
-﻿using System.ComponentModel;
+﻿using Microsoft.Xaml.Behaviors;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Data;
-using System.Windows.Interactivity;
 
 namespace CodingSeb.Behaviors
 {
     public class DynamicConverterPropertyBehavior : Behavior<DependencyObject>
     {
-        private readonly ExpressionEvaluator expressionEvaluator = new ExpressionEvaluator();
+        private readonly ExpressionEvaluator.ExpressionEvaluator expressionEvaluator = new ExpressionEvaluator.ExpressionEvaluator();
 
         public string BindingPropertyName
         {

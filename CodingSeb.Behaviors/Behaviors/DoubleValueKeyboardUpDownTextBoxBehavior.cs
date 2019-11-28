@@ -1,14 +1,13 @@
-﻿using System;
+﻿using Microsoft.Xaml.Behaviors;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Interactivity;
 
 namespace CodingSeb.Behaviors
 {
     public class DoubleValueKeyboardUpDownTextBoxBehavior : Behavior<TextBox>
     {
-        
         /// <summary>
         /// Predefined mode of use of this Behavior to set others properties
         /// </summary>

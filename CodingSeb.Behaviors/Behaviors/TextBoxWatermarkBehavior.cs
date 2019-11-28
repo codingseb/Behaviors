@@ -1,7 +1,7 @@
-﻿using System;
+﻿using Microsoft.Xaml.Behaviors;
+using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Interactivity;
 
 namespace CodingSeb.Behaviors
 {
@@ -59,14 +59,13 @@ namespace CodingSeb.Behaviors
 
             //AddValueChanged for IsFocused in a weak manner
             notifier = new WeakPropertyChangeNotifier(AssociatedObject, UIElement.IsFocusedProperty);
-            notifier.ValueChanged += new EventHandler(UpdateAdorner);
+            notifier.ValueChanged += UpdateAdorner;
         }
 
         private void UpdateAdorner(object sender, EventArgs e)
         {
             UpdateAdorner();
         }
-
 
         private void UpdateAdorner()
         {
