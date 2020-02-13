@@ -10,6 +10,8 @@
     <Copyright>Copyright © Coding Seb 2019</Copyright>
     <RepositoryUrl>https://github.com/codingseb/Behaviors</RepositoryUrl>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+    <Version>1.0.1</Version>
+    <FileVersion>1.0.1.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
