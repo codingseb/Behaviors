@@ -77,6 +77,7 @@ namespace CodingSeb.Behaviors
                             }
 
                             BindingOperations.GetBindingExpression(AssociatedObject, dependencyProperty)?.UpdateTarget();
+                            BindingOperations.GetMultiBindingExpression(AssociatedObject, dependencyProperty)?.UpdateTarget();
                         }
                         catch { }
                     }
