@@ -9,16 +9,15 @@ namespace CodingSeb.Behaviors
     {
         private readonly WeakReference _propertySource;
 
+        #region Constructor
         public WeakPropertyChangeNotifier(DependencyObject propertySource, string path)
             : this(propertySource, new PropertyPath(path))
         {
         }
-
         public WeakPropertyChangeNotifier(DependencyObject propertySource, DependencyProperty property)
             : this(propertySource, new PropertyPath(property))
         {
         }
-
         public WeakPropertyChangeNotifier(DependencyObject propertySource, PropertyPath property)
         {
             if (propertySource == null)
@@ -34,6 +33,7 @@ namespace CodingSeb.Behaviors
 
             BindingOperations.SetBinding(this, ValueProperty, binding);
         }
+        #endregion // Constructor
 
         public DependencyObject PropertySource
         {
